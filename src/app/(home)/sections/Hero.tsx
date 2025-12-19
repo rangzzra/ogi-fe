@@ -19,8 +19,14 @@ import { ArrowDownIcon } from "@heroicons/react/24/outline";
 import TypeIt from "typeit-react";
 import Container from "@/src/app/components/Container";
 import SignalIcon from "../../components/ui/SignalIcon";
+import BuildingWebsiteAsset from "@/public/imgs/undraw/undraw_building-websites_k2zp.svg";
+import OfflineAsset from "@/public/imgs/undraw/undraw_connection-lost_am29.svg";
+import LocationSearch from "@/public/imgs/undraw/undraw_location-search_nesh.svg";
+import WebsiteVisitorAsset from "@/public/imgs/undraw/undraw_website-visitors_qy9c.svg";
+import useScrollReveal from "../../libs/useScrollReveal";
 
 export default function Hero() {
+  useScrollReveal();
   return (
     <section
       id="hero"
@@ -38,14 +44,14 @@ export default function Hero() {
       </video>
       <div className="grid grid-cols-12 w-full gap-x-8 gap-y-32">
         <div className="col-span-12 my-6 grid grid-cols-12">
-          <h1 className="text-7xl font-semibold col-span-8">
+          <h1 className="text-7xl font-semibold col-span-8 reveal">
             Your{" "}
             <span className="underline underline-offset-2 text-amber-600">
               trusted partner
             </span>{" "}
             for comprehensive digital solutions.
           </h1>
-          <h6 className="col-span-4 items-end flex flex-col gap-4">
+          <h6 className="col-span-4 items-end flex flex-col gap-4 reveal">
             <div className="flex justify-end -space-x-6">
               <div className="p-2 bg-white rounded-full border-2 border-white shadow-lg">
                 <Image
@@ -106,20 +112,24 @@ export default function Hero() {
 
         <div className="col-span-4 flex flex-col h-full gap-8 relative">
           <div className="flex flex-col gap-8">
-            <h3 className="text-3xl font-semibold">
+            <h3 className="text-3xl font-semibold reveal">
               Don’t let your business{" "}
               <span className="inline-block bg-amber-600">stay offline.</span>
             </h3>
             <ArrowDownIcon className="w-10 h-10 text-amber-600 animate-bounce" />
           </div>
-          <SignalIcon />
+          <Image
+            src={AppDesignBackground}
+            alt="Building Website Asset"
+            className="w-full h-full rounded-3xl bg-white/20 backdrop-blur-md object-cover p-4 reveal"
+          />
         </div>
         <div className="col-span-8 flex flex-col h-full">
           <div className="bg-white/20 backdrop-blur-md rounded-3xl p-4 flex flex-col gap-4 w-full mt-auto relative group">
             <Image
-              src={OGIAsset06}
+              src={OGIAsset05}
               alt="Web design background"
-              className="w-full h-full object-cover rounded-xl transition-all duration-300 group-hover:brightness-75 group-hover:shadow-xl group-hover:con  trast-125"
+              className="w-full h-full object-cover rounded-xl transition-all duration-300 group-hover:brightness-75 group-hover:shadow-xl group-hover:con  trast-125 reveal"
             />
           </div>
         </div>

@@ -9,24 +9,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function SectionSnap() {
   useLayoutEffect(() => {
-    gsap.utils.toArray(".panel").forEach((panel: any, i: number) => {
-      ScrollTrigger.create({
-        trigger: panel,
-        start: "top top",
+    const sections = gsap.utils.toArray(".panel");
+    const totalSections = sections.length;
+
+    gsap.to(sections, {
+      xPercent: -100 * (totalSections - 1), // geser ke samping
+      ease: "none",
+      scrollTrigger: {
+        trigger: ".horizontal-wrapper",
         pin: true,
-        pinSpacing: false,
-        snap: 1,
-        onUpdate: (self) => {
-          console.log(
-            "progress:",
-            self.progress.toFixed(3),
-            "direction:",
-            self.direction,
-            "velocity",
-            self.getVelocity()
-          );
-        },
-      });
+        scrub: 1,
+        snap: 1 / (totalSections - 1),
+        end: () => `+=${window.innerWidth * (totalSections - 1)}`,
+      },
     });
   }, []);
 

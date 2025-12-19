@@ -6,6 +6,8 @@ import { HomeIcon } from "@heroicons/react/24/outline";
 import { NewspaperIcon } from "@heroicons/react/24/outline";
 import { Separator } from "@/components/ui/separator";
 import OGILogo from "@/public/imgs/logos/ogi-logo.svg";
+import ExploreAsset from "@/public/imgs/undraw/undraw_adventure-map_3e4p.svg";
+
 import Image from "next/image";
 
 import {
@@ -43,11 +45,11 @@ export default function Navbar() {
           <div
             className={`w-full h-max absolute right-0 top-0 pe-20 transition-all duration-300 origin-top-right ${isOpen ? "scale-100" : "scale-0"}`}
           >
-            <div className="p-10 grid grid-cols-12 divide-x gap-8 bg-white border-2 border-gray-400 backdrop-blur-md shadow-xl w-full rounded-3xl text-black">
+            <div className="p-10 grid grid-cols-12 gap-8 bg-white border-2 border-gray-400 backdrop-blur-md shadow-xl w-full rounded-3xl text-black">
               <h1 className="text-4xl font-semibold col-span-12">
                 Let's Explore!
               </h1>
-              <ul className="col-span-6 flex flex-col gap-2 justify-between">
+              <ul className="col-span-6 flex flex-col gap-2">
                 <li>
                   <a href="#" className="flex items-center gap-2 font-semibold -mx-10 px-10 py-5 hover:border-l-4 hover:text-amber-600 border-amber-600 transition-all duration-200">
                     <HomeIcon className="w-8 h-8 inline-block mr-2" />
@@ -62,7 +64,7 @@ export default function Navbar() {
                 </li>
               </ul>
               <div className="col-span-6" id="Search">
-                <Image src={OGILogo} alt="OGI Logo" width={200} />
+                <Image src={ExploreAsset} alt="Explore Adventure Map" />
               </div>
             </div>
           </div>

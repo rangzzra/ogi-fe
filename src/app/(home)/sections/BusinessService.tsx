@@ -17,15 +17,18 @@ import { Separator } from "@/components/ui/separator";
 import { useScrollMove } from "../../libs/useScrollMove";
 import { useScrollLine } from "../../libs/useScrollLine";
 
+import useScrollReveal from "../../libs/useScrollReveal";
+
 export default function BusinessService() {
   const h = useScrollLine(100, 2);
+  useScrollReveal();
   return (
-    <section id="business-service" className="py-20 bg-[url('/imgs/items/grid.svg')] bg-contain bg-top bg-no-repeat">
+    <section id="business-service" className="py-20 bg-[url('/imgs/items/grid.svg')] bg-contain bg-top bg-no-repeat reveal">
       <div className="grid grid-cols-12 gap-12 w-full">
         <div className="col-span-12 mb-16">
           <Marquee
             speed={20}
-            className="text-7xl font-semibold text-gray-400 -mx-16"
+            className="text-7xl font-semibold text-gray-400 -mx-16 reveal"
           >
             Bring your business online with{" "}
             <span className="text-amber-600">Ozora Global Indonesia</span>
@@ -33,11 +36,11 @@ export default function BusinessService() {
           </Marquee>
         </div>
         <div className="col-span-12 w-full">
-          <div className="bg-white/20 backdrop-blur-md rounded-3xl p-4 flex flex-col gap-4 w-full mt-auto relative group bg-[url('/imgs/backgrounds/ogi-asset-02.svg')] bg-no-repeat bg-fixed bg-contain bg-top h-[50svh] relative overflow-hidden">
+          <div className="bg-white/20 backdrop-blur-md rounded-3xl p-4 flex flex-col gap-4 w-full mt-auto relative group bg-[url('/imgs/backgrounds/ogi-asset-02.svg')] bg-no-repeat bg-fixed bg-cover bg-top h-[50svh] relative overflow-hidden reveal">
             <div className="absolute inset-0 bg-linear-to-t from-black/80 to-black/10 bg-opacity-25 rounded-3xl opacity-0 opacity-100 transition-opacity duration-300 group-hover:backdrop-blur-sm"></div>
             <div className="absolute bottom-10 left-1/2 top-1/2 -translate-1/2 w-full flex justify-center items-center pointer-events-none">
               <div className="flex justify-between gap-4 items-center px-8 py-4 rounded-full border-2 border-gray-300 bg-white/10 backdrop-blur-md group-hover:scale-105 transform transition-all duration-300 ease-in-out h-max">
-                <h6 className="text-2xl text-white font-semibold flex items-center gap-2">
+                <h6 className="text-2xl text-white font-semibold flex items-center gap-2 reveal">
                   Our Business Services
                   <span className="text-amber-400">
                     <TypeIt
@@ -71,7 +74,7 @@ export default function BusinessService() {
             </div>
           </div>
         </div>
-        <div className="col-span-12 grid grid-cols-12 gap-12 relative">
+        <div className="col-span-12 grid grid-cols-12 gap-24 relative">
           <div className="absolute left-1/2 -translate-x-1/2 h-full bg-gray-200/50">
             <div
               className="w-1 rounded-full bg-amber-600"
@@ -82,14 +85,14 @@ export default function BusinessService() {
             <Image
               src={OGIAsset05}
               alt="OGI Asset 01"
-              className="w-full h-auto rounded-2xl shadow-2xl"
+              className="w-full h-auto rounded-2xl shadow-2xl reveal"
             />
           </div>
           <div className="col-span-6 flex flex-col justify-center">
-            <h3 className="text-4xl font-semibold mb-4">
+            <h3 className="text-4xl font-semibold mb-4 reveal">
               Website Development & App Design
             </h3>
-            <p className="text-lg">
+            <p className="text-lg reveal">
               We specialize in creating high-quality Landing Pages, Website
               Pages, Website Redesigns, SEO Optimization, and customized Content
               Management Systems (CMS) to help you build a strong digital
@@ -97,8 +100,8 @@ export default function BusinessService() {
             </p>
           </div>
           <div className="col-span-6 flex flex-col justify-center">
-            <h3 className="text-4xl font-semibold mb-4">Graphic Design</h3>
-            <p className="text-lg">
+            <h3 className="text-4xl font-semibold mb-4 reveal">Graphic Design</h3>
+            <p className="text-lg reveal">
               From Social Media Post Designs and Illustrations to Banners,
               Flyers, Business Cards, Brochures, and Company Profiles, we
               deliver creative and impactful designs.
@@ -108,29 +111,29 @@ export default function BusinessService() {
             <Image
               src={OGIAsset03}
               alt="OGI Asset 03"
-              className="w-full h-auto rounded-2xl shadow-2xl"
+              className="w-full h-auto rounded-2xl shadow-2xl reveal"
             />
           </div>
           <div className="col-span-6">
             <Image
               src={OGIAsset08}
               alt="OGI Asset 08"
-              className="w-full h-auto rounded-2xl shadow-2xl"
+              className="w-full h-auto rounded-2xl shadow-2xl reveal"
             />
           </div>
           <div className="col-span-6 flex flex-col justify-center">
-            <h3 className="text-4xl font-semibold mb-4">
+            <h3 className="text-4xl font-semibold mb-4 reveal">
               System Development
             </h3>
-            <p className="text-lg">
+            <p className="text-lg reveal">
               We offer custom development for Learning Management Systems (LMS)
               and Web Commerce solutions (Shopify) to support your digital
               business operations.
             </p>
           </div>
           <div className="col-span-6 flex flex-col justify-center">
-            <h3 className="text-4xl font-semibold mb-4">Japanese-Indonesian Translation Services</h3>
-            <p className="text-lg">
+            <h3 className="text-4xl font-semibold mb-4 reveal">Japanese-Indonesian Translation Services</h3>
+            <p className="text-lg reveal">
               Professional Translation and Interpretation services, including
               website and article content translation, ensuring accurate and
               culturally nuanced communication between Japanese and Indonesian
@@ -141,7 +144,7 @@ export default function BusinessService() {
             <Image
               src={OGIAsset07}
               alt="OGI Asset 07"
-              className="w-full h-auto rounded-2xl shadow-2xl"
+              className="w-full h-auto rounded-2xl shadow-2xl reveal"
             />
           </div>
         </div>

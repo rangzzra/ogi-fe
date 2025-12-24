@@ -1,4 +1,5 @@
 import ThemeToggle from "@/src/app/components/ui/(ThemeSwitcher)/ThemeToggle";
+import LanguageToggle from "@/src/app/components/ui/(LanguageSwitcher)/LanguageToggle";
 import Image from "next/image";
 import OGILogo from "@/public/imgs/logos/ogi-logo.svg";
 import OGILogoWhite from "@/public/imgs/logos/ogi-logo-white.svg";
@@ -25,6 +26,7 @@ export default function Header({
         />
       </div>
       <div id="header-end" className="flex items-center gap-4">
+        <LanguageToggle variant={variant} />
         <ThemeToggle variant={variant} />
         <div className={`rounded-full px-6 py-3 border-2 ${variant === "dark" ? "border-gray-200" : ""} hover:bg-amber-600 hover:text-white transition duration-300`}>
           <Link

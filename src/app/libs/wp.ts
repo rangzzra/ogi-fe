@@ -1,7 +1,16 @@
 import { GraphQLClient } from "graphql-request";
 
-export const wp = new GraphQLClient(process.env.WP_GRAPHQL_ENDPOINT! as string, {
+const client = new GraphQLClient(process.env.WP_GRAPHQL_ENDPOINT!, {
   headers: {
-    "x-api-key": process.env.API_KEY! as string,
+    "Content-Type": "application/json",
+    "x-api-key": process.env.API_KEY!,
+    "User-Agent": "NextJS-Server",
   },
 });
+
+export async function wpRequest<T>(
+  query: string,
+  variables?: Record<string, any>
+): Promise<T> {
+  return client.request<T>(query, variables);
+}

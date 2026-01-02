@@ -4,9 +4,9 @@ import "@/src/app/globals.css";
 import { Plus_Jakarta_Sans } from "next/font/google";
 
 /* Components */
-import Navbar from "@/src/app/components/Navbar";
-import Container from "@/src/app/components/Container";
-import ThemeProvider from "@/src/app/components/ui/(ThemeSwitcher)/ThemeProvider";
+import Navbar from "@/src/components/Navbar";
+import Container from "@/src/components/Container";
+import ThemeProvider from "@/src/components/ui/(ThemeSwitcher)/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

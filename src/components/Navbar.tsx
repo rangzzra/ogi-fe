@@ -32,8 +32,75 @@ import Link from "next/link";
 import { Button } from "@/src/components/ui/button";
 import { useState } from "react";
 
-export default function Navbar() {
+// {
+//     "data": {
+//         "menus": {
+//             "nodes": [
+//                 {
+//                     "id": "dGVybTozMQ==",
+//                     "name": "Navbar ID",
+//                     "slug": "navbar-id",
+//                     "menuItems": {
+//                         "nodes": [
+//                             {
+//                                 "id": "cG9zdDoxODY=",
+//                                 "label": "Beranda",
+//                                 "url": "/"
+//                             },
+//                             {
+//                                 "id": "cG9zdDoyMTQ=",
+//                                 "label": "Berita",
+//                                 "url": "https://ndev-01-api.ozoraglobal.com/#news"
+//                             },
+//                             {
+//                                 "id": "cG9zdDoxODg=",
+//                                 "label": "Layanan Bisnis",
+//                                 "url": "https://ndev-01-api.ozoraglobal.com/layanan/layanan-bisnis/"
+//                             },
+//                             {
+//                                 "id": "cG9zdDoyMjk=",
+//                                 "label": "Portofolio",
+//                                 "url": "https://ndev-01-api.ozoraglobal.com/#portofolio"
+//                             },
+//                             {
+//                                 "id": "cG9zdDoyMzA=",
+//                                 "label": "Perusahaan",
+//                                 "url": "https://ndev-01-api.ozoraglobal.com/#perusahaan"
+//                             },
+//                             {
+//                                 "id": "cG9zdDoyMzE=",
+//                                 "label": "Akses",
+//                                 "url": "https://ndev-01-api.ozoraglobal.com/#akses"
+//                             },
+//                             {
+//                                 "id": "cG9zdDoyMjg=",
+//                                 "label": "Languages",
+//                                 "url": "#pll_switcher"
+//                             },
+//                             {
+//                                 "id": "cG9zdDoyMzI=",
+//                                 "label": "Konsultasi gratis!",
+//                                 "url": "https://ndev-01-api.ozoraglobal.com/konsultasi"
+//                             }
+//                         ]
+//                     }
+//                 }
+//             ]
+//         }
+//     },
+//     "extensions": {
+//         "debug": [
+//             {
+//                 "type": "DEBUG_LOGS_INACTIVE",
+//                 "message": "GraphQL Debug logging is not active. To see debug logs, GRAPHQL_DEBUG must be enabled."
+//             }
+//         ]
+//     }
+// }
+
+export default function Navbar({ data }: { data?: any }) {
   const [isOpen, setIsOpen] = useState(false);
+  const navbarMenu = data?.menuItems || [];
   return (
     <nav className={`fixed top-0 w-full transition-all duration-300 ${isOpen ? 'z-50' : 'z-30'}`}>
       <div className="mx-auto px-16 mt-12">
@@ -50,7 +117,7 @@ export default function Navbar() {
                 Let's Explore!
               </h1>
               <ul className="col-span-6 flex flex-col gap-2">
-                <li>
+                {/* <li>
                   <a href="#" className="flex items-center gap-2 font-semibold -mx-10 px-10 py-5 hover:border-l-4 hover:text-amber-600 border-amber-600 transition-all duration-200">
                     <HomeIcon className="w-8 h-8 inline-block mr-2" />
                     <span className="text-xl">Home</span>
@@ -61,7 +128,16 @@ export default function Navbar() {
                     <NewspaperIcon className="w-8 h-8 inline-block mr-2" />
                     <span className="text-xl">News</span>
                   </a>
-                </li>
+                </li> */}
+                {
+                  navbarMenu.map((item: any) => (
+                    <li key={item.id}>
+                      <a href={item.url} className="flex items-center gap-2 font-semibold -mx-10 px-10 py-5 hover:border-l-4 hover:text-amber-600 border-amber-600 transition-all duration-200">
+                        <span className="text-xl">{item.label}</span>
+                      </a>
+                    </li>
+                  ))
+                }
               </ul>
               <div className="col-span-6" id="Search">
                 <Image src={ExploreAsset} alt="Explore Adventure Map" />

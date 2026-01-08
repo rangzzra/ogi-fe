@@ -5,13 +5,14 @@ import OGILogo from "@/public/imgs/logos/ogi-logo.svg";
 import OGILogoWhite from "@/public/imgs/logos/ogi-logo-white.svg";
 import Link from "next/link";
 import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
+import getLanguages from "@/src/features/queries/language/getLanguages";
 
-export default function Header({
+export default async function Header({
   variant
 }: {
   variant?: "light" | "dark";
 }) {
-
+  const languages = await getLanguages();
   const classes = variant === "dark" ? "text-gray-200" : "";
   return (
     <section
@@ -26,7 +27,7 @@ export default function Header({
         />
       </div>
       <div id="header-end" className="flex items-center gap-4">
-        <LanguageToggle variant={variant} />
+        <LanguageToggle languages={languages} />
         <ThemeToggle variant={variant} />
         <div className={`rounded-full px-6 py-3 border-2 ${variant === "dark" ? "border-gray-200" : ""} hover:bg-amber-600 hover:text-white transition duration-300`}>
           <Link

@@ -19,19 +19,44 @@ import { useScrollLine } from "../../../lib/useScrollLine";
 
 import useScrollReveal from "../../../lib/useScrollReveal";
 
-export default function BusinessService() {
+import findBusinessServiceByLanguage from "@/src/features/home/queries/businessService/findBusinessServiceByLanguage";
+
+export default function BusinessService({
+  data,
+}: {
+  data: Awaited<ReturnType<typeof findBusinessServiceByLanguage>>;
+}) {
   const h = useScrollLine(100, 2);
   useScrollReveal();
+
+  const businessService = data;
+
+  const highlightText = (text: string, keyword: string) => {
+    const parts = text.split(new RegExp(`(${keyword})`, "gi"));
+
+    return parts.map((part, index) =>
+      part.toLowerCase() === keyword.toLowerCase() ? (
+        <span key={index} className="text-amber-600">
+          {part}
+        </span>
+      ) : (
+        part
+      )
+    );
+  };
+
   return (
-    <section id="business-service" className="py-20 bg-[url('/imgs/items/grid.svg')] bg-contain bg-top bg-no-repeat reveal">
+    <section
+      id="business-service"
+      className="py-20 bg-[url('/imgs/items/grid.svg')] bg-contain bg-top bg-no-repeat reveal"
+    >
       <div className="grid grid-cols-12 gap-12 w-full">
         <div className="col-span-12 mb-16">
           <Marquee
             speed={20}
             className="text-7xl font-semibold text-gray-400 -mx-16 reveal"
           >
-            Bring your business online with{" "}
-            <span className="text-amber-600">Ozora Global Indonesia</span>
+            {highlightText(businessService.content, "Ozora Global Indonesia")}
             <ArrowTrendingUpIcon className="w-16 h-16 inline-block mx-8" />
           </Marquee>
         </div>
@@ -100,7 +125,9 @@ export default function BusinessService() {
             </p>
           </div>
           <div className="col-span-6 flex flex-col justify-center">
-            <h3 className="text-4xl font-semibold mb-4 reveal">Graphic Design</h3>
+            <h3 className="text-4xl font-semibold mb-4 reveal">
+              Graphic Design
+            </h3>
             <p className="text-lg reveal">
               From Social Media Post Designs and Illustrations to Banners,
               Flyers, Business Cards, Brochures, and Company Profiles, we
@@ -132,7 +159,9 @@ export default function BusinessService() {
             </p>
           </div>
           <div className="col-span-6 flex flex-col justify-center">
-            <h3 className="text-4xl font-semibold mb-4 reveal">Japanese-Indonesian Translation Services</h3>
+            <h3 className="text-4xl font-semibold mb-4 reveal">
+              Japanese-Indonesian Translation Services
+            </h3>
             <p className="text-lg reveal">
               Professional Translation and Interpretation services, including
               website and article content translation, ensuring accurate and

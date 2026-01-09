@@ -31,8 +31,18 @@ export default function BusinessService({
 
   const businessService = data;
 
+  const escapeHtml = (unsafe: string) => {
+    return unsafe
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  };
+
   const highlightText = (text: string, keyword: string) => {
-    const parts = text.split(new RegExp(`(${keyword})`, "gi"));
+    const escapedKeyword = escapeHtml(text);
+    const parts = escapedKeyword.split(new RegExp(`(${keyword})`, "gi"));
 
     return parts.map((part, index) =>
       part.toLowerCase() === keyword.toLowerCase() ? (
